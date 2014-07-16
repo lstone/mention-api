@@ -45,10 +45,10 @@ module Mention
       MentionList.new(raw_data)
     end
 
-    def update_mention_attr(alert, mention, attributes = {})
+    def update_mention_attr(alert_id, mention_id, attributes = {})
       headers = {'Content-Type' => 'application/json'}
       payload = attributes.to_json
-      raw_data = JSON.parse(resource["/alerts/#{alert.id}/mentions/#{mention.id}"].put(payload, headers))
+      raw_data = JSON.parse(resource["/alerts/#{alert_id}/mentions/#{mention_id}"].put(payload, headers))
 
       Mention.new(raw_data['mention'])
     end
