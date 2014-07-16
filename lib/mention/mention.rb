@@ -15,8 +15,8 @@ module Mention
       attribute :trashed, Boolean
     end
 
-    def update_attr(account, alert, attributes = {})
-      account.update_mention_attr(alert, self, attributes)
+    def update_attr(account, alert_id, attributes = {})
+      account.update_mention_attr(alert_id, self.id, attributes)
     end
   end
 end
